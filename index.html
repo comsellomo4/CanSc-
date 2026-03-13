@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Documentação e Condutor</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+body{
+background:#0B0D4D;
+color:#FFFFFF;
+display:flex;
+justify-content:center;
+}
+
+.tela{
+
+width:360px;
+min-height:100vh;
+
+padding:25px;
+padding-bottom:120px;
+
+animation:entrada .8s ease;
+
+}
+
+@keyframes entrada{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* HEADER */
+
+.header{
+
+display:flex;
+align-items:center;
+gap:10px;
+
+}
+
+.logo{
+width:40px;
+}
+
+.nomeApp{
+
+font-size:26px;
+font-weight:bold;
+
+}
+
+.nomeApp span{
+color:#FF9800;
+}
+
+/* SLOGAN */
+
+.slogan{
+
+background:#FF9800;
+
+color:#0B0D4D;
+
+padding:10px;
+
+border-radius:10px;
+
+text-align:center;
+
+margin:15px 0 25px 0;
+
+font-weight:600;
+
+}
+
+/* TITULO */
+
+.titulo{
+
+border:2px solid #FF9800;
+
+border-radius:30px;
+
+padding:10px;
+
+text-align:center;
+
+font-weight:bold;
+
+margin-bottom:20px;
+
+}
+
+/* CARDS */
+
+.pergunta{
+
+background:rgba(255,255,255,0.04);
+
+border:1px solid rgba(255,255,255,0.08);
+
+border-radius:16px;
+
+padding:15px;
+
+margin-bottom:15px;
+
+transition:.3s;
+
+}
+
+.pergunta:hover{
+
+background:rgba(255,255,255,0.07);
+
+}
+
+/* TEXTO */
+
+.pergunta p{
+
+font-size:14px;
+
+margin-bottom:10px;
+
+}
+
+/* BOTÕES */
+
+.botoes{
+
+display:flex;
+
+gap:10px;
+
+}
+
+button{
+
+flex:1;
+
+border:2px solid #FF9800;
+
+background:none;
+
+color:#FFFFFF;
+
+padding:8px;
+
+border-radius:20px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+button:hover{
+
+background:#FF9800;
+
+color:#0B0D4D;
+
+}
+
+/* RESPOSTA */
+
+.resposta{
+
+margin-top:8px;
+
+font-size:13px;
+
+opacity:0;
+
+transform:translateY(5px);
+
+transition:.35s;
+
+}
+
+.resposta.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* BOTÃO CONTINUAR FIXO */
+
+.continuarArea{
+
+position:fixed;
+
+bottom:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:320px;
+
+}
+
+.continuarBtn{
+
+width:100%;
+
+background:#FF9800;
+
+border:none;
+
+color:#0B0D4D;
+
+padding:15px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.continuarBtn:hover{
+
+transform:translateY(-2px);
+
+box-shadow:0 10px 25px rgba(255,152,0,0.4);
+
+}
+
+.continuarBtn:active{
+
+transform:scale(.96);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="tela">
+
+<div class="header">
+
+<img class="logo" src="https://i.postimg.cc/BbP6W58Z/Picsart-26-03-12-20-29-22-255.png">
+
+<div class="nomeApp">
+VIAGEM <span>SEGURA</span>
+</div>
+
+</div>
+
+<div class="slogan">
+SEGURANÇA • MODERNIDADE • RAPIDEZ
+</div>
+
+<div class="titulo">
+DOCUMENTAÇÃO E CONDUTOR
+</div>
+
+<!-- DOCUMENTOS -->
+
+<div class="pergunta">
+
+<p>Documentos do veículo estão em dia? (Licenciamento e CRLV)</p>
+
+<div class="botoes">
+
+<button onclick="responder('doc','sim')">Sim</button>
+<button onclick="responder('doc','nao')">Não</button>
+
+</div>
+
+<div class="resposta" id="doc"></div>
+
+</div>
+
+<!-- CNH -->
+
+<div class="pergunta">
+
+<p>CNH está dentro da validade?</p>
+
+<div class="botoes">
+
+<button onclick="responder('cnh','sim')">Sim</button>
+<button onclick="responder('cnh','nao')">Não</button>
+
+</div>
+
+<div class="resposta" id="cnh"></div>
+
+</div>
+
+<!-- TOXICO -->
+
+<div class="pergunta">
+
+<p>Exame toxicológico está em dia?</p>
+
+<div class="botoes">
+
+<button onclick="responder('tox','sim')">Sim</button>
+<button onclick="responder('tox','nao')">Não</button>
+
+</div>
+
+<div class="resposta" id="tox"></div>
+
+</div>
+
+<!-- SAÚDE -->
+
+<div class="pergunta">
+
+<p>Condutor está descansado e em boas condições físicas?</p>
+
+<div class="botoes">
+
+<button onclick="responder('saude','sim')">Sim</button>
+<button onclick="responder('saude','nao')">Não</button>
+
+</div>
+
+<div class="resposta" id="saude"></div>
+
+</div>
+
+</div>
+
+<!-- BOTÃO CONTINUAR -->
+
+<div class="continuarArea">
+
+<button class="continuarBtn" onclick="irProxima()">
+CONTINUAR →
+</button>
+
+</div>
+
+<script>
+
+function mostrar(id,msg){
+
+let el=document.getElementById(id)
+
+el.innerHTML=msg
+
+el.classList.add("show")
+
+}
+
+function responder(tipo,res){
+
+if(tipo==="doc"){
+
+if(res==="sim")
+mostrar("doc","✔ Excelente! Documentação em dia garante uma viagem segura.")
+
+else
+mostrar("doc","⚠ Regularize o licenciamento e CRLV antes de iniciar a viagem.")
+
+}
+
+if(tipo==="cnh"){
+
+if(res==="sim")
+mostrar("cnh","✔ Ótimo! CNH válida garante segurança na estrada.")
+
+else
+mostrar("cnh","⚠ Não é permitido dirigir com CNH vencida.")
+
+}
+
+if(tipo==="tox"){
+
+if(res==="sim")
+mostrar("tox","✔ Perfeito! Exame toxicológico em dia.")
+
+else{
+
+mostrar("tox","⚠ Buscando locais próximos para exame toxicológico...")
+
+navigator.geolocation.getCurrentPosition(function(pos){
+
+let lat=pos.coords.latitude
+let lon=pos.coords.longitude
+
+setTimeout(()=>{
+
+window.open(`https://www.google.com/maps/search/exame+toxicológico/@${lat},${lon},14z`)
+
+},1500)
+
+})
+
+}
+
+}
+
+if(tipo==="saude"){
+
+if(res==="sim")
+mostrar("saude","✔ Excelente! Um motorista descansado dirige com mais segurança.")
+
+else
+mostrar("saude","⚠ Recomendamos descansar antes de iniciar a viagem.")
+
+}
+
+}
+
+function irProxima(){
+
+window.location.href="proxima.html"
+
+}
+
+</script>
+
+</body>
+</html>
